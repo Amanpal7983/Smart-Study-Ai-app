@@ -7,7 +7,17 @@ from app.routers import health, auth, generation, items, stats
 
 settings=get_settings()
 app=FastAPI(title="StudyAI API",version="1.0.0")
-app.add_middleware(CORSMiddleware,allow_origins=[settings.client_origin],allow_credentials=True,allow_methods=["GET","POST","PATCH","DELETE","OPTIONS"],allow_headers=["Content-Type","Authorization","X-TZ-Offset"])
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://smart-study-ai-app.vercel.app",
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.exception_handler(RequestValidationError)
 async def validation_handler(request:Request,exc:RequestValidationError):
