@@ -106,4 +106,4 @@ Swagger documentation:
 
 The application uses MySQL. The database schema is managed with Alembic migrations.
 
-The original SQLite/Node.js backend is intentionally not included in this final clean structure because the migration has been completed and verified.
+
